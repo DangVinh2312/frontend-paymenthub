@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blue);
+}
+
+// actions
+.action-container {
+    display: flex;
+}
+
+.title {
+    margin: 0 15px;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+// user menu
+.user-menu {
+}
