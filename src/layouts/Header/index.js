@@ -53,14 +53,53 @@ const ACTIONS_LIST = [
 
 function Header() {
     const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
+    const [anchorEl1, setAnchorEl1] = useState(null);
+    const [anchorEl2, setAnchorEl2] = useState(null);
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
+    const open = Boolean(anchorEl);
+    const open1 = Boolean(anchorEl1);
+    const open2 = Boolean(anchorEl2);
+
+    const getAnchorEl = (index) => {
+        switch (index) {
+            case 1:
+                return anchorEl1;
+            case 2:
+                return anchorEl2;
+            default:
+                return anchorEl;
+        }
+    };
+
+    const getOpen = (index) => {
+        switch (index) {
+            case 1:
+                return open1;
+            case 2:
+                return open2;
+            default:
+                return open;
+        }
+    };
+
+    const handleClick = (event, index) => {
+        switch (index) {
+            case 1:
+                setAnchorEl1(event.currentTarget);
+                break;
+            case 2:
+                setAnchorEl2(event.currentTarget);
+                break;
+            default:
+                setAnchorEl(event.currentTarget);
+                break;
+        }
     };
 
     const handleClose = () => {
         setAnchorEl(null);
+        setAnchorEl1(null);
+        setAnchorEl2(null);
     };
 
     const handleLogout = () => {};
@@ -78,12 +117,12 @@ function Header() {
                         <div className={cx('user-actions')} key={index}>
                             <Button
                                 id={`button-${index}`}
-                                aria-controls={open ? `menu-${index}` : undefined}
+                                aria-controls={getOpen(index) ? `menu-${index}` : undefined}
                                 aria-haspopup='true'
-                                aria-expanded={open ? 'true' : undefined}
+                                aria-expanded={getOpen(index) ? 'true' : undefined}
                                 variant='contained'
                                 disableElevation
-                                onClick={handleClick}
+                                onClick={(e) => handleClick(e, index)}
                                 endIcon={<KeyboardArrowDownIcon />}
                             >
                                 {action.title}
@@ -93,8 +132,8 @@ function Header() {
                                 MenuListProps={{
                                     'aria-labelledby': `button-${index}`,
                                 }}
-                                anchorEl={anchorEl}
-                                open={open}
+                                anchorEl={getAnchorEl(index)}
+                                open={getOpen(index)}
                                 onClose={handleClose}
                             >
                                 {action.children.map((child, childKey) => {
