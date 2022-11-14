@@ -1,6 +1,7 @@
 .wrapper {
     display: flex;
     justify-content: space-between;
+    padding: 5px;
     align-items: center;
     background-color: var(--blue);
 }
@@ -8,9 +9,13 @@
 // actions
 .action-container {
     display: flex;
+    align-items: center;
 }
 
 .title {
+    color: var(--white);
+    font-weight: normal;
+    font-size: 1.4;
     margin: 0 15px;
 }
 

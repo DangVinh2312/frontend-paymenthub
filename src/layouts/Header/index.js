@@ -109,7 +109,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('action-container')}>
                 {/* Logo */}
-                <h1 className={cx('title')}>Menu</h1>
+                <h2 className={cx('title')}>Menu</h2>
 
                 {/* Actions */}
                 {ACTIONS_LIST.map((action, index) => {
