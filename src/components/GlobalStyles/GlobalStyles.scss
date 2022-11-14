@@ -14,7 +14,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 80%;
 }
 
 body {
@@ -22,7 +22,13 @@ body {
     font-size: 1.4rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-    color: var(--white);
+    color: var(--black);
+}
+
+.page-title-container {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin: 10px 0px 0 20px;
 }
 
 button,
@@ -33,6 +39,5 @@ input,
 }
 
 a {
-    color: var(--text-color);
     text-decoration: none;
 }
